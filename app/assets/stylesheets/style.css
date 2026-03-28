@@ -1,0 +1,136 @@
+:root{
+  --logo-color: #fff;
+  --text-color: #a1a1a1;
+  --cta-color: #454545;
+  --title-color: #000;
+  --yellow: #e1d000;
+  --pastel-green: #4f5;
+  --pastel-red: #f44;
+}
+
+*{
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body{
+  background-image: url("bg.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.layout{
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+}
+
+.container{
+  width: 90%;
+  margin: 0 auto;
+  padding: 60px 0;
+  overflow: hidden;
+}
+
+.header{
+  min-height: 200px;
+
+  background-color: teal;
+
+  /* background-image: url(../images/desktop-image-hero-1.jpg);
+  background-size: cover;
+  background-position: center; */
+}
+
+.nav{
+  display: flex;
+}
+
+.nav__links{
+  display: none;
+}
+
+.hamburger{
+  margin: 0 3%;
+}
+
+.logo{
+  margin: 0 auto;
+  width: 80%;
+  max-width: 500px;
+}
+
+
+.main{
+  grid-area: main;
+}
+
+.title{
+  color: var(--title-color);
+}
+
+.content{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.paragraph{
+  line-height: 1.5;
+  margin: 1em 0 2em;
+  color: var(--text-color)
+}
+
+/* .paragraph--about{
+  margin-bottom: 0;
+} */
+
+.cta{
+  text-decoration: none;
+  color: var(--cta-color);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+
+.cta_arrow{
+  margin-left: 20px;
+}
+
+footer{
+  
+}
+
+@media(min-width: 740px){
+  .container{
+    width: 85%;
+    padding: 70px 0;
+  }
+
+  .hamburger{
+    display: none;
+  }
+
+  .nav__links{
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    margin-left: 10%;
+  }
+
+  .nav__li{
+    list-style: none;
+  }
+
+  .nav__link{
+    color: var(--logo-color);
+    text-decoration: none;
+  }
+
+  .logo{
+    margin: 0 3%;
+  }
+}

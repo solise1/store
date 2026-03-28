@@ -1,0 +1,53 @@
+.card__price{}
+
+.products__title{
+  text-align: center;
+  font-size: 2rem;
+}
+
+.products__container{
+  display: flex;
+}
+
+.card{
+  width: 350px;
+  margin: 80px auto;
+  box-shadow: 0 0 3px;
+  border-radius: 1em;
+}
+
+.card__img{
+  width: 100%;
+  display: block;
+  border-radius: 1em 1em 0 0;
+}
+
+.card__container{
+  border-radius: 0 0 1em 1em;
+  padding: 40px 15px;
+  text-align: center;
+  background-color: #ffffffd5;
+}
+
+.card__container--no-img{
+  border-radius: 1em;
+}
+
+.card__title{
+  margin-bottom: 10px;
+}
+
+.card__paragraph{
+  line-height: 1.5;
+  text-align: start;
+}
+
+.card__button{
+  display: block;
+  background-color: #cc021c;
+  color: #fff;
+  text-decoration: none;
+  padding: 1em 2em;
+  margin-top: 1em;
+  border-radius: 2em;
+}

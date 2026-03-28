@@ -1,9 +1,18 @@
-<nav class="nav">
-  <ul class="nav__links">
-    <li class="nav__li">
-      <%= link_to "Home", root_url, class: "nav__link" %>
-      <%= link_to "About", about_url, class: "nav__link" %>
-      <%= link_to "Contact us", contact_url, class: "nav__link" %>
+<nav id="nav">
+  <ul>
+    <li>
+      <%= link_to "Home", root_url, class: request.path == "/" ? 'active' : nil %>
+    </li>
+    <li>
+      <%= link_to "About", about_url, class: request.path == "/about" ? 'active' : nil %>
+    </li>
+    <li>
+      <%= link_to "Contact", contact_url, class: request.path == "/contact" ? 'active' : nil %>
+    </li>
+    <li>
+      <%= link_to cart_url, class: request.path == "/cart" ? 'active' : nil do %>
+        <i id="cart-icon" aria-label="Cart"></i>
+      <% end %>
     </li>
   </ul>
 </nav>

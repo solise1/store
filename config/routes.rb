@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :products
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -12,21 +13,9 @@ Rails.application.routes.draw do
 
   root "products#index"
 
-  get :about, to: "products#index"
-  get :contact, to: "products#index"
+  get :about, to: "main#about"
+  get :contact, to: "main#contact"
+  get :cart, to: "main#cart"
 
   resources :products
-
-  # * I need:
-  # * home (products#index)
-  # * detail (products#show)
-  # * products CRUD for admin
-  # * users
-  # * cart functionality
-  # * payments
-  # * About page
-  # * Contact
-  # * Layout connecting everything
-  # * Then translate everything to German
-
 end

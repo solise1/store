@@ -1,18 +1,69 @@
 <nav id="nav">
   <ul>
-    <li>
-      <%= link_to "Home", root_url, class: request.path == "/" ? 'active' : nil %>
-    </li>
-    <li>
-      <%= link_to "About", about_url, class: request.path == "/about" ? 'active' : nil %>
-    </li>
-    <li>
-      <%= link_to "Contact", contact_url, class: request.path == "/contact" ? 'active' : nil %>
-    </li>
-    <li>
-      <%= link_to cart_url, class: request.path == "/cart" ? 'active' : nil do %>
-        <i id="cart-icon" aria-label="Cart"></i>
+    <div class="general-links">
+      <li>
+        <%= link_to "Home", root_url, class: request.path == "/" ? 'active' : nil %>
+      </li>
+      <li>
+        <%= link_to "About", about_url, class: request.path == "/about" ? 'active' : nil %>
+      </li>
+      <li>
+        <%= link_to "Contact", contact_url, class: request.path == "/contact" ? 'active' : nil %>
+      </li>
+      <li id="main-cart">
+        <%= link_to cart_url, class: request.path == "/cart" ? 'active' : nil do %>
+          <i class="svg cart-icon icon" aria-label="Cart"></i>
+        <% end %>
+      </li>
+    </div>
+
+    <div class="session-links">
+      <% if user_signed_in? %>
+        <li>
+          Signed in as <%= current_user.email %>
+        </li>
+        <li>
+          <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete } %>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to "Sign in", new_user_session_path %>
+        </li>
+        <li>
+          <%= link_to "Sign up", new_user_registration_path %>
+        </li>
       <% end %>
-    </li>
+    </div>
+
+    <%= image_tag "close-icon.svg", id: "close-icon", class: "icon" %>
   </ul>
+
 </nav>
+
+<div class="mobile">
+  <%= link_to cart_url do %>
+    <i class="svg cart-icon icon" aria-label="Cart"></i>
+  <% end %>
+
+  <%= image_tag "icon-hamburger.svg", id: "hamburger-icon", class: "icon" %>
+</div>
+
+<script>
+  const hamburger = document.getElementById("hamburger-icon");
+  const close = document.getElementById("close-icon");
+
+  const navbar = document.getElementById("nav").firstElementChild;
+
+  if(hamburger) {
+    hamburger.addEventListener("click", () => {
+      navbar.classList.add("open");
+    });
+  }
+
+
+  if(close) {
+    close.addEventListener("click", () => {
+      navbar.classList.remove("open");
+    });
+  }
+</script>

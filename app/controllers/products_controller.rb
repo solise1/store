@@ -1,8 +1,13 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: %i[ show edit update destroy ]
+  include Paginable
+
+  before_action :set_product, only: %i[show edit update destroy]
+  before_action :authorize_admin, only: %i[new create edit update destroy]
 
   def index
-    @products = Product.all
+    @per_page = 1
+
+    @products = paginate(Product, @per_page)
   end
 
   def show

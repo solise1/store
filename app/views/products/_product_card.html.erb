@@ -1,0 +1,29 @@
+<article class="product-card" id="<%= dom_id product %>">
+  <% if product.image.attached? %>
+    <%= image_tag product.image %>
+  <% end %>
+
+  <div class="content">
+    <h3><%= product.name %></h3>
+
+    <p class="paragraph">
+      <%= product.description %>
+    </p>
+
+    <h4>
+      Price: <%= product.price_in_cents %>
+    </h4>
+
+    <% if product.stock > 0 %>
+      <%# ! Quantity picker, maybe mention the stock available %>
+    <% else %>
+      <%# ! No stock available %>
+    <% end %>
+  </div>
+
+  <a href="#" class="cart">
+    <i class="svg shopping-cart-icon" aria-label="Add to cart"></i>
+  </a>
+
+    <%# ! Add "add to cart" as well %>
+</article>

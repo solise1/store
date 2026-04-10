@@ -1,0 +1,6 @@
+- cart functionality
+- payments
+- About page
+- Contact
+- translation files for English, German, Turkish and Spanish
+- deploy

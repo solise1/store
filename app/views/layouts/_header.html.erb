@@ -1,7 +1,7 @@
 <header id="header">
-  <%= image_tag "icon-hamburger.svg", class: "hamburger" %>
-
-  <%= image_tag "logo.svg", class: "logo" %>
+  <%= link_to root_url, class: "logo" do %>
+    <%= image_tag "logo.svg" %>
+  <% end %>
 
   <%= render "layouts/nav" %>
 </header>

@@ -1,21 +1,20 @@
-<p style="color: green"><%= notice %></p>
-
 <% content_for :title, "Products" %>
 
-<h2 class="products__title">Products</h2>
+<h2>Products</h2>
 
-<div id="products" class="products__container">
+<p>Flowers that last</p>
 
+<%# TODO: Turn into pretty button: %>
+<% if user_signed_in? && current_user.admin? %>
+  <%= link_to "New product", new_product_path %>
+<% end %>
+
+<section class="products-container">
   <% @products.each do |product| %>
-    <%= render product %>
+    <%= render "products/product_card", product: product %>
 
-    <%# ! Consider opening in modal %>
-
-    <%# <p> %>
-      <%#= link_to "Show this product", product %>
-    <%# </p> %>
-
+    <p><%= link_to "Show this product", product %></p>
   <% end %>
-</div>
+</section>
 
-<%= link_to "New product", new_product_path %>
+<%= render "layouts/pagination" %>

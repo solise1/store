@@ -1,0 +1,21 @@
+<% number_of_pages = @count.fdiv(@per_page).ceil %>
+
+<% if number_of_pages > 1 %>
+  <section id="pagination">
+    <% if @page > 1 %>
+      <%= link_to url_for({ page: @page - 1 }) do %>
+        <i class="svg" id="arrow-left" aria-label="Previous page"></i>
+      <% end %>
+    <% end %>
+
+    <% (1..number_of_pages).each do |i| %>
+      <%= link_to i, url_for({ page: i }), disabled: (i == @page) %>
+    <% end %>
+
+    <% if @page < number_of_pages %>
+      <%= link_to url_for({ page: @page + 1 }) do %>
+        <i class="svg" id="arrow-right" aria-label="Next page"></i>
+      <% end %>
+    <% end %>
+  </section>
+<% end %>

@@ -31,7 +31,10 @@
     <%= form.number_field :stock %>
   </div>
 
-  <%# ! Add option to attach image %>
+  <div>
+    <%= form.label :image, style: "display: block" %>
+    <%= form.file_field :image %>
+  </div>
 
   <div>
     <%= form.submit %>

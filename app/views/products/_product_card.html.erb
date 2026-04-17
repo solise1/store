@@ -11,7 +11,7 @@
     </p>
 
     <h4>
-      Price: <%= product.price_in_cents %>
+      Price: <%= number_to_currency(product.price) %>
     </h4>
 
     <% if product.stock > 0 %>

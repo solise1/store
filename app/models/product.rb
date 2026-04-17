@@ -9,6 +9,6 @@ class Product < ApplicationRecord
   validates :price_in_cents, presence: true, numericality: { greater_than: 0 }
 
   def price
-    (price_in_cents / 100.0).round(2)
+    (price_in_cents / 100.0)
   end
 end

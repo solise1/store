@@ -68,11 +68,6 @@ p {
   align-items: center;
 }
 
-/* ! Remove if unused: */
-/* .field{
-  display: block;
-} */
-
 .title{
   color: var(--title-color);
 }
@@ -150,8 +145,11 @@ footer .attribution {
   text-align: center;
 }
 
-#nav li{
+li{
   list-style: none;
+}
+
+#nav li{
   padding: 0 20px;
   position: relative;
   display: block;

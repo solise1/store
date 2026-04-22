@@ -12,6 +12,9 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
     get products_url
     assert_response :success
+    # assert_select "nav a", minimum: 4 # verify number there
+    # assert_select "classes in some element", number_of_elements_matching
+    # assert_select "h2", "content of the h2"
   end
 
   test "should get new if admin signed in" do

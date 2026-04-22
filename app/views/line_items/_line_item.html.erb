@@ -1,0 +1,13 @@
+<li class="row" id="<%= dom_id line_item %>">
+  <div class="item-detail">
+    <%= line_item.quantity %> &times;
+    <%= line_item.product.name %>
+  </div>
+
+  <span class="price">
+    <%= number_to_currency(line_item.total_price) %>
+  </span>
+
+  <%# TODO replace Remove button with an emoji %>
+  <%= button_to "Remove", line_item, method: :delete %>
+</li>

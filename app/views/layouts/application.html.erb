@@ -25,10 +25,13 @@
   <body>
     <%= render "layouts/header" %>
 
-    <main id="main">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+    <%= render "layouts/notice" %>
 
+    <%= render "layouts/alert" %>
+
+    <%# TODO: change css for #main so we use a container inside the yield block for more
+    control on where the flex container starts, the direction, etc %>
+    <main id="main">
       <%= yield %>
     </main>
 

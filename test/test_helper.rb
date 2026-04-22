@@ -10,6 +10,9 @@ module ActiveSupport
     # Run tests in parallel with specified workers
     parallelize(workers: :number_of_processors)
 
+    # Prevents generating duplicated values during tests:
+    Faker::Config.random = Random.new
+
     # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
     # fixtures :all
 

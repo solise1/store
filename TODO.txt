@@ -1,4 +1,6 @@
-- cart functionality
+- add tests for everything (in progress)
+- cart functionality (almost done)
+- add edit button to products when user is signed in and admin
 - payments
 - About page
 - Contact

@@ -1,0 +1,26 @@
+<div id="cart">
+  <h2>Your Cart</h2>
+
+  <% if cart.id && cart.line_items.any? %>
+    <ul>
+      <%= render cart.line_items.includes(:product) %>
+    </ul>
+
+    <div class="row">
+      <p>Total:
+        <span class="price">
+          <%= number_to_currency(cart.total_price) %>
+        </span>
+      </p>
+    </div>
+
+    <div>
+      <%= button_to "Empty the cart", cart_path, method: :delete, data: { turbo_confirm: "Are you sure?" } %>
+
+      <%= button_to "Checkout", new_order_path, method: :get %>
+    </div>
+
+  <% else %>
+    Your cart is empty.
+  <% end %>
+</div>

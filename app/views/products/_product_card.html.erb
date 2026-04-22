@@ -1,29 +1,30 @@
-<article class="product-card" id="<%= dom_id product %>">
-  <% if product.image.attached? %>
-    <%= image_tag product.image %>
-  <% end %>
-
-  <div class="content">
-    <h3><%= product.name %></h3>
-
-    <p class="paragraph">
-      <%= product.description %>
-    </p>
-
-    <h4>
-      Price: <%= number_to_currency(product.price) %>
-    </h4>
-
-    <% if product.stock > 0 %>
-      <%# ! Quantity picker, maybe mention the stock available %>
-    <% else %>
-      <%# ! No stock available %>
+<%= turbo_frame_tag(dom_id(product)) do %>
+  <article class="product-card" id="<%= dom_id product %>">
+    <% if product.image.attached? %>
+      <%= image_tag product.image %>
     <% end %>
-  </div>
 
-  <a href="#" class="cart">
-    <i class="svg shopping-cart-icon" aria-label="Add to cart"></i>
-  </a>
+    <div class="content">
+      <h3><%= product.name %></h3>
 
-    <%# ! Add "add to cart" as well %>
-</article>
+      <p class="paragraph">
+        <%= product.description %>
+      </p>
+
+      <h4>
+        Price: <%= number_to_currency(product.price) %>
+      </h4>
+
+      <% if product.stock > 0 %>
+        <%# ! Quantity picker, maybe mention the stock available %>
+      <% else %>
+        <%# ! No stock available %>
+      <% end %>
+    </div>
+
+    <%= link_to line_items_path(product_id: product), class: "cart", data: { turbo_method: :post } do %>
+      <i class="svg shopping-cart-icon" aria-label="Add to cart"></i>
+    <% end %>
+
+  </article>
+<% end %>

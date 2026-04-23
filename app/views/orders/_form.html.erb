@@ -27,8 +27,19 @@
   </div>
 
   <div>
-    <%= form.label :pay_type %>
-    <%= form.select :pay_type, Order.pay_types.keys, { prompt: 'Select a payment method' } %>
+  </div>
+
+  <div data-controller="payment">
+    <div>
+      <%= form.label :pay_type %>
+      <%= form.select :pay_type, Order.pay_types.keys,
+                      { prompt: "Select a payment method" },
+                      "data-payment-target" => "selection",
+                      "data-action" => "payment#showAdditionalFields" %>
+    </div>
+
+    <%= render partial: "cash", locals: { form: form } %>
+    <%= render partial: "credit_card", locals: { form: form } %>
   </div>
 
   <div>

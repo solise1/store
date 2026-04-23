@@ -1,0 +1,7 @@
+<h3>Evas Kunstblumen Order shipped</h3>
+
+<p>This is just to let you know that we've shipped your recent order:</p>
+
+<%= render partial: @order.line_items.includes(:product) -%>
+
+<p>We'll send you a separate e-mail when your order ships.</p>

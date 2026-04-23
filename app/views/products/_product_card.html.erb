@@ -22,7 +22,7 @@
       <% end %>
     </div>
 
-    <%= link_to line_items_path(product_id: product), class: "cart", data: { turbo_method: :post } do %>
+    <%= link_to line_items_path(product_id: product), class: "cart", id: "add-to-cart", data: { turbo_method: :post } do %>
       <i class="svg shopping-cart-icon" aria-label="Add to cart"></i>
     <% end %>
 

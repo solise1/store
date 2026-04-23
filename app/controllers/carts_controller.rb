@@ -22,8 +22,7 @@ class CartsController < ApplicationController
   end
 
   def destroy
-    @cart.destroy!
-    session[:cart_id] = nil
+    destroy_cart
 
     respond_to do |format|
       format.turbo_stream

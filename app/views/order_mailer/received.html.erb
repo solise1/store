@@ -1,0 +1,13 @@
+Dear <%= @order.name %>
+
+<p>Thank you for your recent order from Evas Kunstblumen.</p>
+
+<p>You ordered the following items:</p>
+
+<% @order.line_items.includes(:product).each do |line_item| %>
+  <%= format("%2d x %s",
+             line_item.quantity,
+             truncate(line_item.product.name, length: 50))%>
+<% end %>
+
+<p>We'll send you a separate e-mail when your order ships.</p>

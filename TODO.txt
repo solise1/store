@@ -1,8 +1,8 @@
+- translate for English, German, Turkish and Spanish (in progress)
+- About page (and translate)
+- Contact (and translate)
 - add tests for everything (in progress)
-- cart functionality (almost done)
 - add edit button to products when user is signed in and admin
 - payments
-- About page
-- Contact
-- translation files for English, German, Turkish and Spanish
 - deploy
+- quantity picker

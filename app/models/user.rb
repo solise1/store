@@ -5,7 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :confirmable
 
-  validates :email, presence: true
+  # TODO: add name, address and consider other order related fields, for autocompleting orders
+  # validates :name, presence: true, uniqueness: true
+  # validates :address, presence: true, uniqueness: true
+  validates :email, presence: true, uniqueness: true
 
   def admin?
     role == "admin"

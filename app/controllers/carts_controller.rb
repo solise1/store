@@ -12,7 +12,7 @@ class CartsController < ApplicationController
   def update
     respond_to do |format|
       if @cart.update(cart_params)
-        format.html { redirect_to @cart, notice: "Cart was successfully updated.", status: :see_other }
+        format.html { redirect_to @cart, notice: t(".success"), status: :see_other }
         format.json { render :show, status: :ok, location: @cart }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -26,7 +26,7 @@ class CartsController < ApplicationController
 
     respond_to do |format|
       format.turbo_stream
-      format.html { redirect_to root_path, notice: "Your cart is currently empty.", status: :see_other }
+      format.html { redirect_to root_path, notice: t(".success"), status: :see_other }
       format.json { head :no_content }
     end
   end

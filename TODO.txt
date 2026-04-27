@@ -6,3 +6,7 @@
 - payments
 - deploy
 - quantity picker
+- setup mail
+- search files for "TODO" to make sure I didn't miss anything
+- look into GPR stuff to add boilerplate about how user data is used and make sure to be compliant
+- should we translate product names?

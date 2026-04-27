@@ -64,7 +64,7 @@ class OrdersController < ApplicationController
   private
     def ensure_cart_isnt_empty
       if @cart.line_items.empty?
-        redirect_to root_path, notice: t("carts.cart_is_empty")
+        redirect_to root_path, notice: t("orders.new.error.cart_is_empty")
       end
     end
 

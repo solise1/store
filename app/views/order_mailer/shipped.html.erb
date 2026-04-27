@@ -1,7 +1,11 @@
-<h3>Evas Kunstblumen Order shipped</h3>
+<h3>
+  <%= t("order_mailer.shipped.body.greeting")%>
+</h3>
 
-<p>This is just to let you know that we've shipped your recent order:</p>
+<p>
+  <%= t("order_mailer.shipped.body.notice")%>
+</p>
 
 <%= render partial: @order.line_items.includes(:product) -%>
 
-<p>We'll send you a separate e-mail when your order ships.</p>
+<%# TODO if I do delivery include relevant info here, like tracking code or arrival %>

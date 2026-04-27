@@ -5,12 +5,22 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :confirmable
 
-  # TODO: add name, address and consider other order related fields, for autocompleting orders
-  # validates :name, presence: true, uniqueness: true
-  # validates :address, presence: true, uniqueness: true
+  validates :name, uniqueness: true
+  validates :address, uniqueness: true
   validates :email, presence: true, uniqueness: true
+
+  scope :admin, -> { where(role: "admin") }
+  scope :regular, -> { where.not(role: "admin") }
 
   def admin?
     role == "admin"
+  end
+
+  # When I add option to create from order, simply make new user and call this
+  def update_fields_from_order(order)
+    self.name = order.name
+    self.address = order.address
+    self.email = order.email
+    self
   end
 end

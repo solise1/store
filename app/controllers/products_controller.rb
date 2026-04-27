@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
   def index
     @per_page = 6
 
-    @products = paginate(Product, @per_page)
+    @products = paginate(Product.in_stock, @per_page)
   end
 
   def show
@@ -63,6 +63,6 @@ class ProductsController < ApplicationController
     end
 
     def product_params
-      params.expect(product: [ :name, :description, :price_in_cents, :stock ])
+      params.expect(product: [ :name, :description, :price, :stock ])
     end
 end

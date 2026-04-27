@@ -5,12 +5,12 @@ class OrderMailer < ApplicationMailer
   def received(order)
     @order = order
 
-    mail to: order.email, subject: "Evas Kunstblumen order confirmation"
+    mail(to: order.email)
   end
 
   def shipped(order)
     @order = order
 
-    mail to: order.email, subject: "Evas Kunstblumen order shipped"
+    mail(to: order.email)
   end
 end

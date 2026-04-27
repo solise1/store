@@ -2,7 +2,7 @@
   <div class="col">
     <%#= image_tag "logo.svg", class: "logo", alt: "logo" %>
 
-    <h4>Follow Us</h4>
+    <h4><%= t("layout.footer.follow_us") %></h4>
 
     <div class="icons">
       <%# TODO: Add links to socials after they're created %>
@@ -15,23 +15,32 @@
 
   <div class="col">
     <h4>About</h4>
-    <%= link_to "About Us", about_url %>
+    <%= link_to t("layout.footer.about_us"), about_url %>
+    <%# TODO: Add views for these things if applicable and link them here %>
     <%# <a href="#">Delivery Information</a>
     <a href="#">Privacy Policy</a>
     <a href="#">Terms & Conditions</a> %>
-    <%= link_to "Contact Us", contact_url %>
+    <%= link_to t("layout.footer.contact_us"), contact_url %>
   </div>
 
   <div class="col">
-    <h4>My Account</h4>
+    <h4><%= t("layout.footer.my_account") %></h4>
 
-    <a href="#">Sign In</a>
-    <%= link_to "View Cart", cart_url %>
-    <a href="#">My Wishlist</a>
+    <% if user_signed_in? %>
+      <%# ? Consider linking to account info here %>
+      <%= link_to t("layout.user.log_out"), destroy_user_session_path, data: { turbo_method: :delete } %>
+    <% else %>
+      <%= link_to t("layout.user.sign_in"), new_user_session_path %> or
+      <%= link_to t("layout.user.sign_up"), new_user_registration_path %>
+    <% end %>
+
+    <%= link_to t("layout.footer.view_cart"), cart_url %>
+    <%# TODO: Remove if not implemented %>
+    <a href="#"><%= t("layout.footer.my_wishlist") %></a>
     <%# <a href="#">Track My Order</a> %>
   </div>
 
   <div class="attribution">
-    <p>made by solise</p>
+    <p><%= t("layouts.footer.made_by") %> solise</p>
   </div>
 </footer>

@@ -2,7 +2,7 @@ FactoryBot.define do
   factory :line_item do
     product { create(:product) }
     quantity { rand(3) + 1 }
-    price_in_cents { Faker::Commerce.price * 100 }
+    price { Faker::Commerce.price }
 
     trait :with_cart do
       cart { create(:cart) }

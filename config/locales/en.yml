@@ -1,4 +1,26 @@
 en:
+  # Views
+  layout:
+    title: "Evas Kunstblumen"
+    nav:
+      home: "Home"
+      about: "About"
+      contact: "Contact"
+    user:
+      signed_in: "Signed in as %{email}"
+      log_out: "Log out"
+      sign_in: "Sign in"
+      sign_up: "Sign up"
+    footer:
+      follow_us: "Follow Us"
+      made_by: "Made by"
+      about_us: "About Us"
+      contact_us: "Contact Us"
+      view_cart: "View Cart"
+      my_wishlist: "My Wishlist"
+      my_account: "My Account"
+
+  # Controllers
   products:
     create:
       success: "Product was successfully created."
@@ -7,6 +29,9 @@ en:
     destroy:
       success:  "Product was successfully destroyed."
   orders:
+    new:
+      error:
+        cart_is_empty: "Your cart is empty."
     create:
       success: "Thank you for your order."
     update:
@@ -25,5 +50,18 @@ en:
       success: "Cart was successfully updated."
     destroy:
       success:  "Your cart is currently empty."
-    cart_is_empty: "Your cart is empty."
 
+  # Mailers
+  order_mailer:
+    received:
+      subject: "Evas Kunstblumen order confirmation"
+      body:
+        greeting: "Dear %{name}"
+        thank_you: "Thank you for your recent order from Evas Kunstblumen."
+        your_order: "You ordered the following items:"
+        notice_another_email: "We'll send you a separate e-mail when your order ships."
+    shipped:
+      subject: "Evas Kunstblumen order shipped"
+      body:
+        greeting: "Evas Kunstblumen Order shipped"
+        notice: "This is just to let you know that we've shipped your recent order:"

@@ -33,7 +33,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     sign_in @admin
 
     assert_difference("Product.count") do
-      post products_url, params: { product: { description: @new_product.description, name: @new_product.name, price_in_cents: @new_product.price_in_cents, stock: @new_product.stock } }
+      post products_url, params: { product: { description: @new_product.description, name: @new_product.name, price: @new_product.price, stock: @new_product.stock } }
     end
 
     assert_redirected_to product_url(Product.last)
@@ -41,7 +41,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
 
   test "should redirect from create otherwise" do
     assert_no_difference("Product.count") do
-      post products_url, params: { product: { description: @new_product.description, name: @new_product.name, price_in_cents: @new_product.price_in_cents, stock: @new_product.stock } }
+      post products_url, params: { product: { description: @new_product.description, name: @new_product.name, price: @new_product.price, stock: @new_product.stock } }
     end
 
     assert_redirected_to root_url
@@ -66,12 +66,12 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
 
   test "should update product if admin signed in" do
     sign_in @admin
-    patch product_url(@product), params: { product: { description: @product.description, name: @product.name, price_in_cents: @product.price_in_cents, stock: @product.stock } }
+    patch product_url(@product), params: { product: { description: @product.description, name: @product.name, price: @product.price, stock: @product.stock } }
     assert_redirected_to product_url(@product)
   end
 
   test "should redirect from update otherwise" do
-    patch product_url(@product), params: { product: { description: @product.description, name: @product.name, price_in_cents: @product.price_in_cents, stock: @product.stock } }
+    patch product_url(@product), params: { product: { description: @product.description, name: @product.name, price: @product.price, stock: @product.stock } }
 
     assert_redirected_to root_url
   end

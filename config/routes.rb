@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :orders
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -17,7 +16,13 @@ Rails.application.routes.draw do
   get :about, to: "main#about"
   get :contact, to: "main#contact"
 
+  scope :admin do
+    get "", to: "admin#dashboard", as: :admin_dashboard
+  end
+
+
   resources :products
   resources :line_items, only: %i[create update destroy]
+  resources :orders
   resource :cart
 end

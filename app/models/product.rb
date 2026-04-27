@@ -8,13 +8,11 @@ class Product < ApplicationRecord
   validates :name, presence: true, uniqueness: true
   validates :description, presence: true
   validates :stock, presence: true
-  validates :price_in_cents, presence: true, numericality: { greater_than: 0 }
+  validates :price, presence: true, numericality: { greater_than: 0 }
 
   before_destroy :ensure_not_referenced_by_any_line_item
 
-  def price
-    (price_in_cents / 100.0)
-  end
+  scope :in_stock, -> { where.not(stock: 0) }
 
   private
     def ensure_not_referenced_by_any_line_item

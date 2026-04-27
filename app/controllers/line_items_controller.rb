@@ -2,7 +2,7 @@ class LineItemsController < ApplicationController
   include CurrentCart
 
   before_action :set_cart
-  before_action :set_line_item, only: %i[ show edit update destroy ]
+  before_action :set_line_item, only: %i[update destroy]
 
   def create
     product = Product.find params[:product_id]
@@ -10,7 +10,8 @@ class LineItemsController < ApplicationController
 
     respond_to do |format|
       if @line_item.save
-        # # Remove commentted code if I don't end up using it for highlighted:
+        # TODO Remove commentted code if I don't end up using it for highlighted:
+
         format.turbo_stream # { @current_item = @line_item }
         format.html { redirect_to cart_url, notice: t(".success") }
         format.json { render :show, status: :created, location: @line_item }

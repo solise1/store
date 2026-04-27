@@ -16,13 +16,18 @@ Rails.application.routes.draw do
   get :about, to: "main#about"
   get :contact, to: "main#contact"
 
-  scope :admin do
-    get "", to: "admin#dashboard", as: :admin_dashboard
-  end
-
-
-  resources :products
+  resources :products, only: %i[index show]
   resources :line_items, only: %i[create update destroy]
-  resources :orders
-  resource :cart
+  resources :orders, except: :index
+  resource  :cart, only: %i[show destroy]
+
+  namespace :admin do
+    # resources :carts
+    # resources :line_items
+    resources :orders
+    resources :products
+    resources :users
+
+    root to: "products#index"
+  end
 end

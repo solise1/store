@@ -69,3 +69,6 @@ end
 
 gem "devise", "~> 5.0"
 gem "stripe"
+gem "administrate"
+gem "administrate-field-active_storage"
+gem "image_processing"

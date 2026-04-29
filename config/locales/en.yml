@@ -65,3 +65,9 @@ en:
       body:
         greeting: "Evas Kunstblumen Order shipped"
         notice: "This is just to let you know that we've shipped your recent order:"
+  contact_mailer:
+    contact:
+      subject: "From your contact form: %{subject}"
+      body:
+        greeting: "You received a new message from the contact form."
+        warning: ""

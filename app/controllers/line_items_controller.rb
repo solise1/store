@@ -10,9 +10,7 @@ class LineItemsController < ApplicationController
 
     respond_to do |format|
       if @line_item.save
-        # TODO Remove commentted code if I don't end up using it for highlighted:
-
-        format.turbo_stream # { @current_item = @line_item }
+        format.turbo_stream
         format.html { redirect_to cart_url, notice: t(".success") }
         format.json { render :show, status: :created, location: @line_item }
       else

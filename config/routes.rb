@@ -14,7 +14,10 @@ Rails.application.routes.draw do
   root "products#index"
 
   get :about, to: "main#about"
-  get :contact, to: "main#contact"
+
+  get  "/contact", to: "contact#new"
+  post "/contact", to: "contact#create"
+  get  "/contact/success", to: "contact#success"
 
   resources :products, only: %i[index show]
   resources :line_items, only: %i[create update destroy]
@@ -22,8 +25,8 @@ Rails.application.routes.draw do
   resource  :cart, only: %i[show destroy]
 
   namespace :admin do
-    # resources :carts
-    # resources :line_items
+    resources :carts, only: %i[index show]
+    resources :line_items, only: %i[index show]
     resources :orders
     resources :products
     resources :users

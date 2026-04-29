@@ -1,7 +1,6 @@
 # Priority:
 - translate for English, German, Turkish and Spanish (in progress)
 - About page (and translate)
-- Contact (and translate)
 - should we translate product names? If so, look into implementing ruby i18n gem
 - add edit button to products when user is signed in and admin (redirect to dashboard edit view)
 - quantity picker
@@ -9,7 +8,7 @@
 - Consider adding a boolean for orders that have already been handled
 
 # Remaining of TODO list:
-- implement slugs where applicable
+- implement slugs or puids where applicable
 - add tests for everything (in progress)
 - payments
 - deploy
@@ -17,5 +16,6 @@
 - improve frontend
 - search files for "TODO" to make sure I didn't miss anything
 - look into GPR stuff to add boilerplate about how user data is used and make sure to be compliant
+- in that same spirit make an email blacklist to make sure to honor unsubscriptions
 
 - consider switching pagination for kaminari since it's a dependency of administrate

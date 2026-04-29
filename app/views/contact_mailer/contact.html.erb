@@ -1,0 +1,9 @@
+<h3><%= t("contact_mailer.contact.body.greeting") %></h3>
+
+<p><%= t("contact_mailer.contact.body.warning") %></p>
+
+<p>From: <%= @email %></p>
+
+<% @body.lines(chomp: true).each do |line| %>
+  <p><%= line %></p>
+<% end %>

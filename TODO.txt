@@ -5,7 +5,7 @@
 - add edit button to products when user is signed in and admin (redirect to dashboard edit view)
 - quantity picker
 - Make admin dashboard match color pattern from the rest of the website
-- Consider adding a boolean for orders that have already been handled
+- Consider adding a boolean for orders that have already been handled (maybe deleting any identifiable info after the fact)
 
 # Remaining of TODO list:
 - implement slugs or puids where applicable
@@ -15,7 +15,10 @@
 - setup mail
 - improve frontend
 - search files for "TODO" to make sure I didn't miss anything
-- look into GPR stuff to add boilerplate about how user data is used and make sure to be compliant
+- remove unnecessary data collection (check stuff like ips in logs as well)
+- write what data is stored, for how long, how it's used, and provide a method to delete it on request
+- add users controller that lets user delete their profile and data
+- add user_id to orders so a user can track their orders and even delete identifiable information from older ones
 - in that same spirit make an email blacklist to make sure to honor unsubscriptions
 
 - consider switching pagination for kaminari since it's a dependency of administrate

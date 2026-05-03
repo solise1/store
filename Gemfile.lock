@@ -468,6 +468,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   kamal
+  kaminari
   pg
   propshaft
   puma (>= 5.0)

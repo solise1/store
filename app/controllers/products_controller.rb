@@ -1,15 +1,8 @@
 class ProductsController < ApplicationController
-  include Paginable
-
   before_action :set_product, only: :show
 
   def index
-    @per_page = 6
-
-    @products = paginate(Product.in_stock, @per_page)
-  end
-
-  def show
+    @products = Product.in_stock.page(params[:page].to_i)
   end
 
   private

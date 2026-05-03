@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   post "/contact", to: "contact#create"
   get  "/contact/success", to: "contact#success"
 
-  resources :products, only: %i[index show]
+  resources :products, only: :index
   resources :line_items, only: %i[create update destroy]
   resources :orders, except: :index
   resource  :cart, only: %i[show destroy]

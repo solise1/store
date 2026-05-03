@@ -14,6 +14,8 @@ class Product < ApplicationRecord
 
   scope :in_stock, -> { where.not(stock: 0) }
 
+  paginates_per 6
+
   private
     def ensure_not_referenced_by_any_line_item
       unless line_items.empty?
